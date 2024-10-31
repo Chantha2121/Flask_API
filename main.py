@@ -5,5 +5,9 @@ app = Flask(__name__)
 def index():
     return "Hello, world!"
 
+@app.route('/admin')
+def admin():
+    return "This is admin!"
+
 if __name__ == '__main__':
     app.run()
