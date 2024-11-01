@@ -3,7 +3,11 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return render_template('Hello.html')
+    return render_template('index.html')
+
+@app.route('/hello')
+def hello():
+    return '<h1>Hello</h1>'
 
 @app.route('/admin')
 def admin():
@@ -13,5 +17,6 @@ def admin():
 def user(name):
     return render_template('User.html', user_name = name)
 
+
 if __name__ == '__main__':
-    app.run(port=3000)
+    app.run('127.0.0.1', port=3001, debug=True)
