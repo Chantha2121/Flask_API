@@ -36,7 +36,27 @@
             </li>
         </ul>
     </nav>
-
+    <h1>Table</h1>
+    <table class="table bg-dark text-white">
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Product Name</th>
+          <th scope="col">Barcode</th>
+          <th scope="col">Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in item_list%}
+        <tr>
+          <td>{{ item.id }}</td>
+          <td>{{ item.name }}</td>
+          <td>{{ item.barcode}}</td>
+          <td>{{ item.price}}</td>
+        </tr>
+          {% endfor %}
+      </tbody>
+    </table>
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
