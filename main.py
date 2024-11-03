@@ -3,12 +3,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    items = [
-        {'id':1001, 'name':"Phone", 'barcode':"10020334534", 'price':1000},
-        {'id':1002, 'name':"Computer", 'barcode':"4520334534", 'price':500},
-        {'id':1003, 'name':"Laptop", 'barcode':"100203545534", 'price':3000},
-    ]
-    return render_template('index.html', item_list = items)
+    return render_template('index.html')
 
 @app.route('/hello')
 def hello():
@@ -21,6 +16,15 @@ def admin():
 @app.route('/user/<name>')
 def user(name):
     return render_template('User.html', user_name = name)
+
+@app.route('/market')
+def market():
+    items = [
+        {'id':1001, 'name':"Phone", 'barcode':"10020334534", 'price':1000},
+        {'id':1002, 'name':"Computer", 'barcode':"4520334534", 'price':500},
+        {'id':1003, 'name':"Laptop", 'barcode':"100203545534", 'price':3000},
+    ]
+    return render_template('market.html', item_list=items)
 
 
 if __name__ == '__main__':
