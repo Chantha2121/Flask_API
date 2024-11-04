@@ -1,6 +1,15 @@
-from flask import Flask, render_template
+from flask import Flask,jsonify, render_template
+from flask_sqlalchemy import SQLAlchemy
 app = Flask(__name__)
 
+app.config['SQLALCHEMY_DATBASE_URL'] = 'postgresql://postgres:chantha@localhost:5432/Market'
+
+db = SQLAlchemy(app)
+class Product(db.model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(80), unique=False, nullable=False)
+    barcode = db.Column(db.String(80), unique=False, nullable=False)
+    price = db.Column(db.Float, unique=False, nullable=False)
 @app.route('/')
 def index():
     return render_template('index.html')
